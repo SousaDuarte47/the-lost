@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script src="https://jsdelivr.net"></script><script>window.onerror=function(m,u,l){alert(m+' na linha '+l)}</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Lost</title>
+  <style>
+    body { margin: 0; font-family: sans-serif; background: #121212; color: #fff; }
+    
+    textarea, .auth-input {
+      background-color: #1e1e1e !important;
+      color: #ffffff !important;
+      border: 1px solid #333333 !important;
+      border-radius: 8px !important;
+      padding: 12px !important;
+      outline: none !important;
+      resize: none !important;
+      width: 100% !important;
+      box-sizing: border-box;
+      font-family: sans-serif;
+      margin-bottom: 15px;
+    }
+
+    .header { display: flex; align-items: center; justify-content: space-between; padding: 10px 20px; background: #1a1a1a; box-shadow: 0 2px 5px rgba(0,0,0,0.5); position: sticky; top: 0; z-index: 1000; }
+    .logo { font-weight: bold; background: #b92b8d; padding: 5px 10px; border-radius: 5px; color: #fff; cursor: pointer; }
+    .search-bar input { background: #2a2a2a; border: none; color: #fff; padding: 8px 15px; border-radius: 20px; outline: none; width: 150px; text-align: center; }
+    .feed { padding: 20px; display: flex; flex-direction: column; gap: 20px; padding-bottom: 80px; }
+    
+    .create-post-card, .card { background: #1e1e1e; padding: 15px; border-radius: 10px; border: 1px solid #333; display: flex; flex-direction: column; gap: 12px; }
+    .post-actions { display: flex; justify-content: space-between; align-items: center; }
+    .action-btn { font-size: 20px; cursor: pointer; padding: 6px 12px; background: #2a2a2a; border-radius: 6px; display: flex; align-items: center; }
+    
+    .publish-btn, .auth-btn {
+      background: #b92b8d;
+      border: none;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+    }
+    .publish-btn { width: auto; }
+
+    .card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; width: 100%; }
+    .avatar { background: #5c6bc0; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #fff; }
+    .card-header h3 { margin: 0; font-size: 16px; }
+    .card-header p { font-size: 12px; color: #888; }
+    .card-body h2 { margin: 0 0 8px 0; font-size: 18px; }
+    .card-footer { display: flex; gap: 10px; margin-top: 15px; width: 100%; }
+    .card-footer button { background: #2a2a2a; border: none; color: #fff; padding: 6px 12px; border-radius: 5px; cursor: pointer; display: flex; align-items: center; gap: 5px; font-size: 14px; }
+    
+    .mobile-nav { position: fixed; bottom: 0; left: 0; right: 0; background: #1a1a1a; border-top: 1px solid #333; display: flex !important; flex-direction: row !important; justify-content: space-around; padding: 10px 0; z-index: 1000; }
+    .mobile-nav button { background: none; border: none; color: #888; cursor: pointer; font-size: 14px; display: flex; flex-direction: column; align-items: center; gap: 5px; flex: 1; }
+    .mobile-nav button.active { color: #fff; font-weight: bold; }
+
+    /* Tela de Autenticação Centralizada */
+    .auth-container { max-width: 350px; margin: 80px auto padding: 20px; background: #1e1e1e; border-radius: 12px; border: 1px solid #333; text-align: center; }
+    .auth-toggle { margin-top: 15px; font-size: 14px; color: #aaa; cursor: pointer; text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <div id="appHeader" class="header" style="display:none;">
+    <div class="logo" onclick="show('home')">TL</div>
+    <div class="search-bar">
+      <input type="text" placeholder="Pesquisar...">
+    </div>
+    <div id="userAvatarTop" class="avatar" style="background:#b92b8d">M</div>
+  </div>
+
+  <main id="content">
+    <!-- Telas injetadas via app.js -->
+  </main>
+
+  <nav id="appNav" class="mobile-nav" style="display:none;">
+    <button class="nav active" onclick="show('home')"><span>🏠</span><span>Início</span></button>
+    <button class="nav" onclick="show('discover')"><span>🔍</span><span>Descobrir</span></button>
+    <button class="nav" onclick="show('create')"><span>➕</span><span>Criar</span></button>
+    <button class="nav" onclick="show('messages')"><span>💬</span><span>Chat</span></button>
+    <button class="nav" onclick="show('profile')"><span>👤</span><span>Perfil</span></button>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+</html>

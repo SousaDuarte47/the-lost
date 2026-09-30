@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="The Lost — conecte-se, publique, converse e descubra novos conteúdos.">
+<title>The Lost</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <button class="brand" onclick="show('home')"><span class="logo">TL</span><span>The Lost</span></button>
+    <div class="search"><span>⌕</span><input id="searchInput" placeholder="Pesquisar no The Lost..." oninput="searchPosts(this.value)"></div>
+    <div class="top-actions">
+      <button class="icon-btn" onclick="show('messages')" aria-label="Mensagens">✉</button>
+      <button class="avatar" onclick="show('profile')">M</button>
+    </div>
+  </header>
+
+  <aside class="sidebar">
+    <button class="nav active" data-page="home" onclick="show('home')">⌂ <span>Início</span></button>
+    <button class="nav" data-page="discover" onclick="show('discover')">◉ <span>Descobrir</span></button>
+    <button class="nav" data-page="create" onclick="show('create')">＋ <span>Criar</span></button>
+    <button class="nav" data-page="messages" onclick="show('messages')">✉ <span>Mensagens</span></button>
+    <button class="nav" data-page="profile" onclick="show('profile')">◯ <span>Meu perfil</span></button>
+    <div class="side-spacer"></div>
+    <button class="nav" data-page="settings" onclick="show('settings')">⚙ <span>Configurações</span></button>
+    <button class="nav" data-page="admin" onclick="show('admin')">▣ <span>Administração</span></button>
+  </aside>
+
+  <main id="content"></main>
+
+  <nav class="mobile-nav">
+    <button onclick="show('home')">⌂<small>Início</small></button>
+    <button onclick="show('discover')">◉<small>Descobrir</small></button>
+    <button onclick="show('create')">＋<small>Criar</small></button>
+    <button onclick="show('messages')">✉<small>Chat</small></button>
+    <button onclick="show('profile')">◯<small>Perfil</small></button>
+  </nav>
+</div>
+<div id="toast" class="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
